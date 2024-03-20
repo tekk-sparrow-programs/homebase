@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekk Sparrow Programs Redirect Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #FFFFFF;
+            background-color: #333647;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 0.5em;
+        }
+        .auth-code {
+            margin-top: 1em;
+            font-style: italic;
+        }
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            background-color: #444;
+            border-radius: 50%;
+            border: 6px solid #556;
+            display: block;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tekk Sparrow Programs</h1>
+    <h2>Redirect Example Page</h2>
+    <div >
+        <img class="profile-img" src="profile-img.jpg" alt="picture of tekk sparrow">
+    </div>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function() {
+            const authCode = getQueryParam('code');
+            if (authCode) {
+                const authCodeMessage = document.createElement('div');
+                authCodeMessage.textContent = "Authorization code received! Copy the entire URL and return to your program.";
+                authCodeMessage.classList.add('auth-code');
+                document.body.appendChild(authCodeMessage);
+            }
+        };
+    </script>
+</body>
+</html>
