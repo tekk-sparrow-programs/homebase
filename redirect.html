@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSP : HOME</title>
+    <title>TSP : REDIRECT</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -40,9 +40,25 @@
 </head>
 <body>
     <h1>Tekk Sparrow Programs</h1>
-    <h2>Landing Page | Host Domain | Home Page</h2>
+    <h2>Redirect Example Page</h2>
     <div >
         <img class="profile-img" src="profile-img.jpg" alt="picture of tekk sparrow">
     </div>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function() {
+            const authCode = getQueryParam('code');
+            if (authCode) {
+                const authCodeMessage = document.createElement('div');
+                authCodeMessage.textContent = "Authorization code received! Copy the entire URL and return to your program.";
+                authCodeMessage.classList.add('auth-code');
+                document.body.appendChild(authCodeMessage);
+            }
+        };
+    </script>
 </body>
 </html>
